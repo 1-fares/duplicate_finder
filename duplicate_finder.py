@@ -6,14 +6,8 @@ from pathlib import Path
 
 PARTIAL_HASH_SIZE = 64 * 1024  # 64KB for partial hash comparison
 
-try:
-    import xxhash
-
-    def _new_hash():
-        return xxhash.xxh128()
-except ImportError:
-    def _new_hash():
-        return hashlib.sha256()
+def _new_hash():
+    return hashlib.blake2b(digest_size=16)
 
 
 def partial_hash(filepath: Path) -> str:

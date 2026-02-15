@@ -5,8 +5,5 @@ description = "Command-line tool to find duplicate files by content"
 requires-python = ">=3.13"
 dependencies = []
 
-[project.optional-dependencies]
-fast = ["xxhash"]
-
 [project.scripts]
 duplicate-finder = "duplicate_finder:main"
